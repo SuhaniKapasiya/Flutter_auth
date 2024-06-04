@@ -53,27 +53,48 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+
+
+
+
   Future<void> login() async {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
-      Fluttertoast.showToast(msg: "Logged in: ${userCredential.user?.email}");
+      Fluttertoast.showToast(
+        msg: "Logged in: ${userCredential.user?.email}",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+      );
     } catch (e) {
-      Fluttertoast.showToast(msg: "Failed to login: $e");
+      Fluttertoast.showToast(
+        msg: "Failed to login: $e",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+      );
     }
   }
 
+// In your signup method
   Future<void> signup() async {
     try {
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
-      Fluttertoast.showToast(msg: "Signed up: ${userCredential.user?.email}");
+      Fluttertoast.showToast(
+        msg: "Signed up: ${userCredential.user?.email}",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+      );
     } catch (e) {
-      Fluttertoast.showToast(msg: "Failed to sign up: $e");
+      Fluttertoast.showToast(
+        msg: "Failed to sign up: $e",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+      );
     }
   }
 
